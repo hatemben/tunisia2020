@@ -166,7 +166,7 @@ function createBarCharts(rawData) {
             labels: labelsSector,
             datasets: [
                 {
-                    label: "Investissements par secteur (en Mille TND)",
+                    label: "Investissements par secteur (en MDT)",
                     borderWidth: 1,
                     data: valuesSector
                 }
@@ -181,7 +181,7 @@ function createBarCharts(rawData) {
             labels: labelsIndustry,
             datasets: [
                 {
-                    label: "Investissement par industrie (en Mille TND)",
+                    label: "Investissement par industrie (en MDT)",
                     borderWidth: 1,
                     data: valuesIndustry
                 }
