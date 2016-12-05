@@ -1,11 +1,13 @@
-# tunisia2020
-Tunisia 2020 Projects map explorer
+# Tunisia2020
+
+Tunisia 2020 Projects map explorer & data viz.
+
+[Demo](www.hbyconsultancy.com/tunisia2020/) available.
 
 
-Demo available at www.hbyconsultancy.com/tunisia2020/
-
-Using : 
-jQuery
-DataTables
-Jqvmap
-Json-viewer
+Using :
+* jQuery
+* DataTables
+* Jqvmap
+* Json-viewer
+* Charts.js
