@@ -80,3 +80,26 @@ label {
     margin: 8px 0;
     padding-bottom: 8px;
 }
+
+#barSectors {
+    float: left;
+    margin-left: 10px;
+}
+
+#barIndustry {
+    float: right;
+    margin-right: 10px;
+}
+
+#map {
+    background-color: #1A01CC;
+    margin-bottom: 20px;
+}
+
+#barchartSector, #industryBarChart {
+    width: 500px;
+}
+
+.clearfix {
+    clear: both;
+}

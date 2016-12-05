@@ -44,9 +44,7 @@ function countProjects(code) {
 
 // Return list of projects by region
 function listProjects(code, obj) {
-
-
-    var liste = " <thead><tr><th>Titre</th><th>Responsable</th><th>Cost M€</th><th>Cost MDT</th><th># region</th><th>Lien</th></tr> </thead><tbody>";
+    var liste = "<thead><tr><th>Titre</th><th>Responsable</th><th>Cost M€</th><th>Cost MDT</th><th># region</th><th>Lien</th></tr> </thead><tbody>";
     $.each(obj, function () {
         gov = this["governorate"];
         try {
@@ -99,7 +97,7 @@ $.fn.slideFadeToggle = function (easing, callback) {
 };
 
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
 
     $('.close').on('click', function () {
         deselect($('#projectdetail'));
@@ -126,5 +124,69 @@ jQuery(document).ready(function () {
                 //
             }
         });
+
+        // sector & industry bar chart
+        createBarCharts(tunisia2020);
     });
 });
+
+
+function createBarCharts(rawData) {
+    var labelsSector = ["Private", "Public", "Private-Public-Partnership"],
+        valuesSector = [0, 0, 0];
+
+    var labelsIndustry = [],
+        valuesIndustry = [];
+
+    //console.debug(rawData);
+
+    //Structure data for barcharts
+    rawData.forEach(function (entry) {
+        if (entry.sector === "Public") {
+            valuesSector[0] += parseInt(entry['Cost MDT']);
+        } else if (entry.sector === "Privé") {
+            valuesSector[1] += parseInt(entry['Cost MDT']);
+        } else if ((entry.sector === "Public-privé" || entry.sector === "  Privé, Public-privé") || entry.sector === "Public-privé") {
+            valuesSector[2] += parseInt(entry['Cost MDT'])
+        }
+
+        // industry
+        if (labelsIndustry.indexOf(entry.activity) === -1) {
+            labelsIndustry.push(entry.activity);
+            valuesIndustry.push(parseInt(entry['Cost MDT']));
+        } else {
+            valuesIndustry[labelsIndustry.indexOf(entry.activity)] += parseInt(entry['Cost MDT']);
+        }
+    });
+
+
+    new Chart(document.getElementById("sectorBarChart"), {
+        type: 'bar',
+        data: {
+            labels: labelsSector,
+            datasets: [
+                {
+                    label: "Investissements par secteur (en Mille TND)",
+                    borderWidth: 1,
+                    data: valuesSector
+                }
+            ]
+        }
+    });
+
+    ///
+    new Chart(document.getElementById("industryBarChart"), {
+        type: 'bar',
+        data: {
+            labels: labelsIndustry,
+            datasets: [
+                {
+                    label: "Investissement par industrie (en Mille TND)",
+                    borderWidth: 1,
+                    data: valuesIndustry
+                }
+            ]
+        }
+    });
+
+}
