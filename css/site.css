@@ -1,0 +1,82 @@
+* {
+    font-family: ralewaysemibold, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    color: #222222;
+}
+
+.left-div {
+    float: left;
+    margin-right: 10px;
+    width: 350px;
+    height: 637px;
+}
+
+.right-div {
+    margin-left: 370px;
+    width: 800px;
+}
+
+​
+.dataTable {
+    clear: none;
+}
+
+.dataTables_wrapper {
+    clear: none;
+}
+
+a.selected {
+    background-color: #1F75CC;
+    color: white;
+    z-index: 100;
+}
+
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 999;
+}
+
+.messagepop {
+    display: none;
+    background: #fff;
+    padding: 10px;
+    border: 2px solid #ddd;
+    float: left;
+    font-size: 1em;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 80%;
+    z-index: 99999;
+    box-shadow: 0px 0px 20px #999;
+    /* CSS3 */
+    -moz-box-shadow: 0px 0px 20px #999;
+    /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999;
+    /* Safari, Chrome */
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    /* Firefox */
+    -webkit-border-radius: 3px;
+    /* Safari, Chrome */;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+.messagepop p, .messagepop.div {
+    border-bottom: 1px solid #EFEFEF;
+    margin: 8px 0;
+    padding-bottom: 8px;
+}
